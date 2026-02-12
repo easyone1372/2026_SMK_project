@@ -112,6 +112,7 @@
   text-decoration: none;
   position: relative;
   padding-bottom: 8px;
+  cursor: pointer;
 }
 
 .menu_btn::after {
