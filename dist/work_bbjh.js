@@ -1,0 +1,90 @@
+// work_bbjh.ts
+class BbjhAnimation {
+    constructor() {
+        this.animationComplete = false;
+        this.imageBox = document.querySelector(".bbjh_image_box");
+        this.fullImageBox = document.querySelector(".bbjh_full_image_box");
+        this.init();
+    }
+    init() {
+        console.log("BbjhAnimation 초기화됨");
+        console.log("imageBox:", this.imageBox);
+        console.log("fullImageBox:", this.fullImageBox);
+        // 애니메이션 완료 시간 계산 (마지막 애니메이션 완료 시점)
+        // 캐릭터 2: 3.2s + 0.8s = 4s
+        setTimeout(() => {
+            this.animationComplete = true;
+            console.log("애니메이션 완료!");
+            if (this.imageBox) {
+                this.imageBox.classList.add("animation-complete");
+            }
+        }, 4000);
+        // 이미지 박스 클릭/호버 이벤트
+        if (this.imageBox && this.fullImageBox) {
+            // 호버로 팝업 표시
+            this.imageBox.addEventListener("mouseenter", () => {
+                console.log("마우스 호버, 애니메이션 완료:", this.animationComplete);
+                if (this.animationComplete) {
+                    this.showFullImage();
+                }
+            });
+            // 전역 마우스 이동 감지 - 이미지 박스의 좌우 범위 체크
+            document.addEventListener("mousemove", (e) => {
+                var _a;
+                // 팝업이 열려있을 때만 체크
+                if (((_a = this.fullImageBox) === null || _a === void 0 ? void 0 : _a.classList.contains("active")) && this.imageBox) {
+                    const rect = this.imageBox.getBoundingClientRect();
+                    const mouseX = e.clientX;
+                    // 마우스가 이미지 박스의 좌우 범위를 벗어났는지 체크
+                    if (mouseX < rect.left || mouseX > rect.right) {
+                        console.log("좌우 범위 벗어남, 팝업 닫기");
+                        this.hideFullImage();
+                    }
+                }
+            });
+            // 팝업 배경 클릭 시 닫기
+            this.fullImageBox.addEventListener("click", (e) => {
+                // 배경(fullImageBox)을 직접 클릭한 경우만 닫기
+                if (e.target === this.fullImageBox) {
+                    console.log("팝업 배경 클릭, 닫기");
+                    this.hideFullImage();
+                }
+            });
+            // ESC 키로 팝업 닫기
+            document.addEventListener("keydown", (e) => {
+                if (e.key === "Escape") {
+                    console.log("ESC 키 눌림, 팝업 닫기");
+                    this.hideFullImage();
+                }
+            });
+        }
+        else {
+            console.error("요소를 찾을 수 없음!");
+        }
+    }
+    showFullImage() {
+        console.log("showFullImage 호출됨");
+        if (this.fullImageBox) {
+            this.fullImageBox.classList.add("active");
+            console.log("active 클래스 추가됨");
+            console.log("팝업 opacity:", window.getComputedStyle(this.fullImageBox).opacity);
+            // 스크롤 방지
+            document.body.style.overflow = "hidden";
+        }
+    }
+    hideFullImage() {
+        console.log("hideFullImage 호출됨");
+        if (this.fullImageBox) {
+            this.fullImageBox.classList.remove("active");
+            console.log("active 클래스 제거됨");
+            // 스크롤 복원
+            document.body.style.overflow = "";
+        }
+    }
+}
+// DOM 로드 완료 후 초기화
+document.addEventListener("DOMContentLoaded", () => {
+    new BbjhAnimation();
+});
+export default BbjhAnimation;
+//# sourceMappingURL=work_bbjh.js.map
