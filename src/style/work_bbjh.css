@@ -24,7 +24,6 @@ body {
   width: 1200px;
   height: 850px;
   cursor: pointer;
-  /* hover scale 제거 - 팝업만 표시 */
 }
 
 /* 공통 스타일 */
@@ -34,7 +33,7 @@ body {
 .bbjh_char3,
 .bbjh_char4 {
   position: absolute;
-  height: 100%;
+  height: auto;
 }
 
 .bbjh_horse img,
@@ -48,72 +47,39 @@ body {
   opacity: 0;
 }
 
-/* 개별 크기 설정 */
 .bbjh_horse {
-  width: 25%; /* 말 크기 */
-}
-
-.bbjh_char1 {
-  width: 20%; /* 캐릭터1 크기 */
-}
-
-.bbjh_char2 {
-  width: 15%; /* 캐릭터2 크기 */
-}
-
-.bbjh_char3 {
-  width: 24%; /* 캐릭터3 크기 */
-}
-
-.bbjh_char4 {
-  width: 20%; /* 캐릭터4 크기 */
-}
-
-/* 위치 설정 (왼쪽에서 오른쪽으로) */
-/* 말 - 가장 왼쪽 */
-.bbjh_horse {
-  left: 0;
-}
-
-/* 캐릭터 1 - 왼쪽에서 두 번째 */
-.bbjh_char1 {
-  left: 10%;
-}
-
-/* 캐릭터 2 - 중간 */
-.bbjh_char2 {
-  left: 50%;
-}
-
-/* 캐릭터 3 - 오른쪽에서 두 번째 */
-.bbjh_char3 {
-  left: 60%;
-}
-
-/* 캐릭터 4 - 가장 오른쪽 */
-.bbjh_char4 {
-  left: 75%;
-}
-
-/* Z-index 설정 */
-.bbjh_char1 {
-  z-index: 5;
-}
-
-.bbjh_horse {
+  width: 26%;
+  left: 3%;
   z-index: 4;
+  bottom: 2%;
 }
 
-.bbjh_char4 {
-  z-index: 3;
-}
-
-.bbjh_char3 {
-  z-index: 2;
+.bbjh_char1 {
+  width: 20%;
+  left: 18%;
+  z-index: 5;
+  bottom: 0;
 }
 
 .bbjh_char2 {
-  z-index: 1;
+  width: 16%;
+  left: 47%;
+  z-index: 2;
+  bottom: 10%;
+}
+
+.bbjh_char3 {
+  width: 26%;
+  left: 58%;
+  z-index: 3;
+  bottom: 2%;
+}
+
+.bbjh_char4 {
+  width: 23%;
+  left: 78%;
+  z-index: 4;
+  bottom: 0;
 }
 
 /* 애니메이션 순서: 캐릭터1 -> 말 -> 캐릭터4 -> 캐릭터3 -> 캐릭터2 */
@@ -179,7 +145,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  pointer-events: none; /* 내부 요소는 마우스 이벤트 무시 */
+  pointer-events: none;
 }
 
 .bbjh_full_image_box.active .bbjh_full_image {
