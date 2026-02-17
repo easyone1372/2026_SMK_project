@@ -26,8 +26,8 @@
 /* 스탬프 공통 스타일 */
 .form_stamp_box {
   position: absolute;
-  width: 1000px;
-  height: 800px;
+  width: 150px;
+  height: 150px;
   cursor: pointer;
   z-index: 2;
 }
@@ -77,6 +77,20 @@
 /* 클릭 상태에서도 호버 무시 */
 .form_stamp_box.active:hover .stamp_hover {
   opacity: 0;
+}
+
+/* MT 스탬프 위치  */
+.form_stamp_mt_box {
+  left: 50%;
+  top: 68%;
+  transform: translate(-150px, 80px);
+}
+
+/* IS 스탬프 위치 */
+.form_stamp_is_box {
+  left: 50%;
+  top: 68%;
+  transform: translate(10px, 80px);
 }
 
 /* 팝업 스타일 */
