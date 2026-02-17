@@ -27,7 +27,7 @@ class WorkSignpost {
         if (mtOkBtn) {
             mtOkBtn.addEventListener("click", (e) => {
                 e.stopPropagation(); // 팝업 닫기 방지
-                window.location.href = "/work_page/work_klk.html";
+                window.location.href = "./work_klk.html";
             });
         }
         // IS OK 버튼 - work_bbjh.html로 이동
@@ -35,7 +35,7 @@ class WorkSignpost {
         if (isOkBtn) {
             isOkBtn.addEventListener("click", (e) => {
                 e.stopPropagation(); // 팝업 닫기 방지
-                window.location.href = "/work_page/work_bbjh.html";
+                window.location.href = "./work_bbjh.html";
             });
         }
         // BACK 버튼들 - 초기 화면으로 복귀

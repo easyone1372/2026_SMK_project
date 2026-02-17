@@ -5,6 +5,10 @@ const navBtnEvent = document.addEventListener("DOMContentLoaded", () => {
   const formBtn = document.getElementById("form-btn") as HTMLAnchorElement;
   const creditBtn = document.getElementById("credit-btn") as HTMLAnchorElement;
 
+  // work_page 폴더 안인지 확인
+  const isInWorkPage = window.location.pathname.includes("/work_page/");
+  const prefix = isInWorkPage ? "../" : "./";
+
   const navigateWithTransition = (url: string) => {
     document.body.classList.add("page-transitioning");
     setTimeout(() => {
@@ -14,28 +18,27 @@ const navBtnEvent = document.addEventListener("DOMContentLoaded", () => {
 
   if (homeBtn) {
     homeBtn.addEventListener("click", () => {
-      console.log("Home button clicked");
-      navigateWithTransition("/index.html");
+      navigateWithTransition(`${prefix}index.html`);
     });
   }
 
   if (workBtn) {
     workBtn.addEventListener("click", () => {
-      console.log("Work button clicked");
-      navigateWithTransition("/work_page/work.html");
+      navigateWithTransition(
+        isInWorkPage ? "./work.html" : "./work_page/work.html",
+      );
     });
   }
+
   if (formBtn) {
     formBtn.addEventListener("click", () => {
-      console.log("Form button clicked");
-      navigateWithTransition("/form.html");
+      navigateWithTransition(`${prefix}form.html`);
     });
   }
 
   if (creditBtn) {
     creditBtn.addEventListener("click", () => {
-      console.log("Credit button clicked");
-      navigateWithTransition("/credit.html");
+      navigateWithTransition(`${prefix}credit.html`);
     });
   }
 });
