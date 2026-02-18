@@ -135,6 +135,31 @@
   border-radius: 10px;
 }
 
+/* 작업중 문구 스타일 */
+.popup_wip {
+  background-color: white;
+  border-radius: 20px;
+  padding: 80px 120px;
+  text-align: center;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+.wip_text {
+  font-family: "Pretendard", sans-serif;
+  font-size: 36px;
+  font-weight: 700;
+  color: #d40004;
+  margin: 0 0 20px 0;
+}
+
+.wip_subtext {
+  font-family: "Pretendard", sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  color: #666;
+  margin: 0;
+}
+
 /* 팝업 닫기 버튼 */
 .popup_close {
   position: absolute;
